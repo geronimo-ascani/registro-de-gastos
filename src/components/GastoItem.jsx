@@ -1,4 +1,4 @@
-import { eliminarGasto } from '../services/gastosService';
+import { eliminarGasto } from '../services/gastos';
 
 function GastoItem({gasto, onGastoEliminado}){
     const handleEliminar = async () => {

@@ -1,18 +1,18 @@
-function Resumen ({gastos, categoriaFiltro}){
-    const gastosFiltrados =
+function Resumen({ gastos, categoriaFiltro }) {
+  const gastosFiltrados =
     categoriaFiltro === ""
       ? gastos
       : gastos.filter((g) => g.categoria === categoriaFiltro);
 
-    const totalGastos = gastosFiltrados.reduce((acc, gasto) => acc + gasto.cantidad, 0);
+  const total = gastosFiltrados.reduce((acum, g) => acum + g.monto, 0);
 
-    const gastoMasAlto =
-         gastosFiltrados.length > 0
-         ? gastosFiltrados.reduce((max, g) => (g.monto > max.monto ? g : max))
-         : null;
+  const gastoMasAlto =
+    gastosFiltrados.length > 0
+      ? gastosFiltrados.reduce((max, g) => (g.monto > max.monto ? g : max))
+      : null;
 
-    return(
-         <div className="resumen">
+  return (
+    <div className="resumen">
       <h2>Resumen</h2>
 
       {categoriaFiltro && (
@@ -35,7 +35,6 @@ function Resumen ({gastos, categoriaFiltro}){
       )}
     </div>
   );
-    
 }
 
 export default Resumen;

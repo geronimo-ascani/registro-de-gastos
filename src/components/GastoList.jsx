@@ -20,6 +20,5 @@ function GastoList({gastos, categoriaFiltro, onGastoEliminado}) {
     </ul>
   );
 
-
-    export default GastoList;
 }
+    export default GastoList;
