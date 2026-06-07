@@ -4,6 +4,7 @@ import GastoForm from "./components/GastoForm";
 import GastoList from "./components/GastoList";
 import Resumen from "./components/Resumen";
 
+
 function App() {
   const [gastos, setGastos] = useState([]);
   const [categorias, setCategorias] = useState([]);
@@ -59,12 +60,12 @@ function App() {
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
-          <div className="bg-blue-600 text-white p-2 rounded-lg">
+          <div className="bg-blue-600 p-2 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h1 className="text-2xl font-medium text-slate-800">Registro de Gastos</h1>
+          <h1 className="text-2xl font-medium text-blue-600">Registro de Gastos</h1>
         </div>
 
         {/* Resumen arriba */}

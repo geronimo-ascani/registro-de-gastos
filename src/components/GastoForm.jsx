@@ -3,10 +3,10 @@ import { agregarGasto } from "../services/gastos";
 
 function GastoForm({ categorias, onGastoAgregado }) {
   const [form, setForm] = useState({
-    descripcion: "",
-    monto: "",
     categoria: "",
+    monto: "",
     fecha: "",
+    descripcion: "",
   });
 
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ function GastoForm({ categorias, onGastoAgregado }) {
     try {
       const respuesta = await agregarGasto(nuevoGasto);
       onGastoAgregado(respuesta.data);
-      setForm({ descripcion: "", monto: "", categoria: "", fecha: "" });
+      setForm({ categoria: "", monto: "", fecha: "", descripcion: "" });
     } catch (error) {
       alert("Error al agregar el gasto");
     }
@@ -38,30 +38,6 @@ function GastoForm({ categorias, onGastoAgregado }) {
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <div>
-          <label className="text-xs text-slate-400 mb-1 block">Descripción</label>
-          <input
-            type="text"
-            name="descripcion"
-            placeholder="Ej: Almuerzo"
-            value={form.descripcion}
-            onChange={handleChange}
-            className={inputClass}
-          />
-        </div>
-
-        <div>
-          <label className="text-xs text-slate-400 mb-1 block">Monto</label>
-          <input
-            type="number"
-            name="monto"
-            placeholder="0.00"
-            value={form.monto}
-            onChange={handleChange}
-            className={inputClass}
-          />
-        </div>
-
         <div>
           <label className="text-xs text-slate-400 mb-1 block">Categoría</label>
           <select
@@ -80,11 +56,36 @@ function GastoForm({ categorias, onGastoAgregado }) {
         </div>
 
         <div>
+          <label className="text-xs text-slate-400 mb-1 block">Monto</label>
+          <input
+            type="number"
+            name="monto"
+            placeholder="0.00"
+            value={form.monto}
+            onChange={handleChange}
+            className={inputClass}
+          />
+        </div>
+
+
+        <div>
           <label className="text-xs text-slate-400 mb-1 block">Fecha</label>
           <input
             type="date"
             name="fecha"
             value={form.fecha}
+            onChange={handleChange}
+            className={inputClass}
+          />
+        </div>
+
+        <div>
+          <label className="text-xs text-slate-400 mb-1 block">Descripción</label>
+          <input
+            type="text"
+            name="descripcion"
+            placeholder="Ej: Almuerzo"
+            value={form.descripcion}
             onChange={handleChange}
             className={inputClass}
           />
@@ -102,3 +103,5 @@ function GastoForm({ categorias, onGastoAgregado }) {
 }
 
 export default GastoForm;
+
+
